@@ -25,3 +25,7 @@
 - 全部启动建议按照下方的顺序启动
 
 gateway -- acl -- oss -- vod --usercenter -- statistic -- edu -- comment -- order -- cms -- msm
+
+# 工程模块关系分析
+![image](https://user-images.githubusercontent.com/65709384/190214977-6a8da79c-1575-46a4-a29f-86b0d1724eff.png)
+

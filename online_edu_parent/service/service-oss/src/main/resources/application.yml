@@ -1,0 +1,41 @@
+#服务端口
+server:
+  port: 8002
+spring:
+  application:
+    name: service-oss
+  profiles:
+    active: dev
+  #将edu_service注册到nacos服务注册中心
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+#暴露所有的监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  #设置不检查redis的健康状态，因为引入了actuator依赖会自带检查一些东西的健康状态
+  #因为还没用到redis，若不设置会报一个无法连接redis的错误
+  health:
+    redis:
+      enabled: false
+
+#设置feign客户端超时时间(OpenFeign默认支持ribbon)
+ribbon:
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下,两端连接所用的时间
+  ReadTimeout: 5000
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 5000
+
+#阿里云 OSS配置信息
+aliyun:
+  oss:
+    file:
+      endpoint: oss-cn-guangzhou.aliyuncs.com #节点地域
+      keyid: LTAI5tHuNsemaiLnP3yro4vD #访问id
+      keysecret: ed1Zxok1SklTEI40HhRKkJeRcQdyWc #访问密码
+      bucketname: onlineedufile #访问bucketname名

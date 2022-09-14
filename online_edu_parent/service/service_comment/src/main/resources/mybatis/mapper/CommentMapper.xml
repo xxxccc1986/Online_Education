@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.year21.onlineedu.servicecommnet.mapper.CommentMapper">
+
+<!--    int reportComment(String commentId);-->
+    <update id="reportComment">
+        update edu_comment set is_reported = #{status} where id = #{commentId}
+    </update>
+</mapper>

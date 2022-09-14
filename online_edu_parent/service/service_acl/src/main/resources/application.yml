@@ -1,0 +1,39 @@
+server:
+  port: 8011
+
+spring:
+  application:
+    name: service-acl
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/online_edu?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+#    password: root
+    password: 1483501858
+  redis:
+    port: 6379
+    #本地地址
+#    host: 192.168.231.134
+    host: 127.0.0.1
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: 1
+        #最大阻塞等待时间(负数表示无限制)
+        max-idle: 5
+        min-idle: 0
+  #设置时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis-plus:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl

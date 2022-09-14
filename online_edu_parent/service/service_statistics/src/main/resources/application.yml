@@ -1,0 +1,49 @@
+server:
+  port: 8008
+
+spring:
+  application:
+    name: service-statistics
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/online_edu?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+#    password: root
+    password: 1483501858
+  #设置时间格式
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  #将edu_service注册到nacos服务注册中心
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+
+#暴露所有的监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  #设置不检查redis的健康状态，因为引入了actuator依赖会自带检查一些东西的健康状态
+  #因为还没用到redis，若不设置会报一个无法连接redis的错误
+  health:
+    redis:
+      enabled: false
+
+#设置feign客户端超时时间(OpenFeign默认支持ribbon)
+ribbon:
+  #指的是建立连接所用的时间，适用于网络状况正常的情况下,两端连接所用的时间
+  ReadTimeout: 5000
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 5000
+
+#一旦使用xml映射文件就必须设置这个路径,建议每次在创建时就加上
+mybatis-plus:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+

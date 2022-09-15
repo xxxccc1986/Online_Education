@@ -11,7 +11,7 @@
 
 ---
 
-项目介绍：基于SpringCloud + Vue + Nuxt + ElementUi 前后端分离开发 的B2C项目
+项目介绍：基于SpringCloud + MyBatisPlus + Vue + Nuxt + ElementUi 前后端分离开发 的B2C项目
 
 项目技术栈：
 
@@ -74,7 +74,7 @@
 
 **建议使用PC端进行访问**
 
-项目详细笔记 ：[SpringCloud + Vue + Nuxt + ElementUi 前后端分离开发 的B2C项目](http://year21.top/2022/09/14/OnlineEducation/)
+项目详细笔记 ：[SpringCloud + MyBatisPlus + Vue + Nuxt + ElementUi 前后端分离开发 的B2C项目](http://year21.top/2022/09/14/OnlineEducation/)
 
 ---
 

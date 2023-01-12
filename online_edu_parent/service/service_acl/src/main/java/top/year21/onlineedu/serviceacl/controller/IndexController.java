@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.year21.onlineedu.JsonResult;
-import top.year21.onlineedu.serviceacl.helper.IpUtils;
+import top.year21.onlineedu.serviceacl.entity.Ip2CityEntity;
 import top.year21.onlineedu.serviceacl.service.IndexService;
+import top.year21.onlineedu.serviceacl.utils.IpUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -57,8 +58,8 @@ public class IndexController {
 
     //根据ip获取登录信息
     @GetMapping("/getIpInfo")
-    public JsonResult<JSONObject>  getIpInfo(HttpServletRequest request){
-        JSONObject ipInfo = IpUtils.getIpInfo();
+    public JsonResult<Ip2CityEntity>  getIpInfo(HttpServletRequest request){
+        Ip2CityEntity ipInfo = IpUtils.getIpInfo(request);
         return new JsonResult<>(true,"查询成功",ipInfo);
     }
 }

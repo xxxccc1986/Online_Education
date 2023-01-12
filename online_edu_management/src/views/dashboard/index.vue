@@ -14,11 +14,11 @@
         <div class="dashboard-text" style="font-size:17px;color: red;font-weight:bold">
           登录ip:
           <span style="padding-right: 10px;">
-            {{ipInfo.cip}}
+            {{ipInfo.ip}}
           </span>
           登录地点:
           <span >
-            {{ipInfo.cname}}
+            {{ipInfo.province}}{{ipInfo.city}}
           </span>
         </div>
       </el-card>
@@ -34,7 +34,12 @@ export default {
   name: 'Dashboard',
   data() {
     return {
-      ipInfo:[]
+      // ipInfo:[]
+      ipInfo:{
+        ip:'',
+        province:'',
+        city:''
+      }
     }
   },
   computed: {
